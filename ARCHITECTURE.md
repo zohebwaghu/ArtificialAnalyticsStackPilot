@@ -11,7 +11,7 @@
 | State | React Context + URL search params | No external state library needed; URL params for shareable comparisons |
 | LLM (generation) | Local templates; optional server-proxied Gemini free-tier BYOK | Zero operator model cost; submitted keys remain in component memory and are never persisted or logged |
 | Template engine | Handlebars-style string interpolation | Simple, no dependency, fills PRD/ARCH templates |
-| Deploy | Vercel (free tier) | Automatic deploys from GitHub, edge CDN, zero config |
+| Deploy | Vercel or Docker (Node 24 Alpine, standalone output) | Managed zero-config hosting or a portable, minimal self-hosted image |
 | Analytics | Vercel Analytics (free) or Plausible | Privacy-respecting, no cookie banner needed |
 
 ## 2. Component Breakdown
@@ -334,6 +334,9 @@ stackpilot/
 | Lint | `npm run lint` |
 | Type check | `npx tsc --noEmit` |
 | Deploy | `git push origin main` (Vercel auto-deploys) |
+| Build container | `docker build -t stackpilot:local .` |
+| Run container | `docker compose up --build` |
+| Container development | `docker compose -f compose.dev.yaml up --build` |
 | Update data | Edit JSON files in `/data/`, commit, push |
 
 ## 7. Testing Expectations

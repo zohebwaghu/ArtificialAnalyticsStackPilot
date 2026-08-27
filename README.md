@@ -13,6 +13,28 @@ npm run dev
 
 Open `http://localhost:3000`. No environment variables are required for comparisons, recommendations, template generation, or export.
 
+## Run with Docker
+
+Build and run the production container:
+
+```bash
+docker compose up --build
+```
+
+Open `http://localhost:3000`. To use another host port, copy `.env.example` to `.env` and change `STACKPILOT_PORT`, or run:
+
+```bash
+STACKPILOT_PORT=8080 docker compose up --build
+```
+
+For containerized development with source mounts and hot reload:
+
+```bash
+docker compose -f compose.dev.yaml up --build
+```
+
+The production image uses Next.js standalone output, runs as the unprivileged `node` user, and exposes `/api/health` for container health checks. API keys are never included in the image. Users enter a free-tier Gemini key at runtime when they explicitly request document enhancement.
+
 ## Quality gates
 
 ```bash
@@ -20,6 +42,7 @@ npm run lint
 npm run typecheck
 npm test
 npm run build
+docker compose config
 ```
 
 ## Data and security

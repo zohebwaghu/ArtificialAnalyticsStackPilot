@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "docker:build": "docker build -t stackpilot:local .",
+    "docker:up": "docker compose up --build",
+    "docker:dev": "docker compose -f compose.dev.yaml up --build"
   },
   "dependencies": {
     "next": "16.3.3",

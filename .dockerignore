@@ -1,0 +1,15 @@
+.git
+.github
+.next
+node_modules
+coverage
+screenshots
+.vscode
+.DS_Store
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+Dockerfile*
+compose*.yaml
